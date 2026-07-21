@@ -27,7 +27,7 @@ A light Neovim colorscheme based on the [Gogh](https://github.com/Gogh-Co/Gogh) 
 
 ```lua
 {
-  "YOUR_GITHUB_USER/paper-gogh-nvim",
+  "horatiothomas/paper-gogh-nvim",
   lazy = false,
   priority = 1000,
   config = function()
