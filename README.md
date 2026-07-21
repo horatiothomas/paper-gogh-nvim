@@ -45,7 +45,7 @@ A light Neovim colorscheme based on the [Gogh](https://github.com/Gogh-Co/Gogh) 
 
 ```lua
 use({
-  "YOUR_GITHUB_USER/paper-gogh-nvim",
+  "horatiothomas/paper-gogh-nvim",
   config = function()
     vim.cmd.colorscheme("paper-gogh")
   end,
@@ -103,6 +103,10 @@ require("lualine").setup({
 ## Credits
 
 Colors from the [Paper](https://github.com/Gogh-Co/Gogh/blob/master/installs/paper.sh) theme in [Gogh](https://github.com/Gogh-Co/Gogh).
+
+## Disclaimer
+
+This was one shot AI coded
 
 ## License
 
