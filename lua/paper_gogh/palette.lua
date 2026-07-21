@@ -1,6 +1,6 @@
 local M = {}
 
-M.colors = {
+M.light = {
   bg = "#f2eede",
   bg_dim = "#ebe6d4",
   bg_dark = "#e4dfcc",
@@ -42,5 +42,54 @@ M.colors = {
 
   none = "NONE",
 }
+
+M.dark = {
+  bg = "#1c1c1c",
+  bg_dim = "#262626",
+  bg_dark = "#121212",
+  bg_light = "#303030",
+  bg_visual = "#33434c",
+  bg_search = "#5a4800",
+  bg_match = "#29453a",
+
+  fg = "#d0d0d0",
+  fg_dim = "#808080",
+  fg_subtle = "#6c6c6c",
+  fg_muted = "#585858",
+
+  black = "#1c1c1c",
+  red = "#af005f",
+  green = "#5faf00",
+  yellow = "#d7af5f",
+  blue = "#5fafd7",
+  magenta = "#808080",
+  cyan = "#d7875f",
+  white = "#d0d0d0",
+
+  bright_black = "#585858",
+  bright_red = "#5faf5f",
+  bright_green = "#afd700",
+  bright_yellow = "#af87d7",
+  bright_blue = "#ffaf00",
+  bright_magenta = "#ff5faf",
+  bright_cyan = "#00afaf",
+  bright_white = "#5f8787",
+
+  orange = "#ffaf00",
+  soft_red = "#451f32",
+  soft_green = "#2d401f",
+  soft_yellow = "#493d28",
+  soft_blue = "#283f49",
+  soft_magenta = "#403044",
+  soft_cyan = "#254344",
+
+  none = "NONE",
+}
+
+M.colors = M.light
+
+function M.get(appearance)
+  return appearance == "dark" and M.dark or M.light
+end
 
 return M

@@ -67,11 +67,10 @@ function M.load(opts)
   end
 
   vim.o.termguicolors = true
-  vim.o.background = "light"
   vim.g.colors_name = "paper-gogh"
 
   local config = vim.tbl_deep_extend("force", M.config, opts or {})
-  local c = require("paper_gogh.palette").colors
+  local c = require("paper_gogh.palette").get(vim.o.background)
   local groups = require("paper_gogh.highlights").groups(c)
 
   apply_options(groups, c, config)
@@ -85,8 +84,8 @@ function M.load(opts)
   end
 end
 
-function M.get_palette()
-  return require("paper_gogh.palette").colors
+function M.get_palette(appearance)
+  return require("paper_gogh.palette").get(appearance or vim.o.background)
 end
 
 return M
