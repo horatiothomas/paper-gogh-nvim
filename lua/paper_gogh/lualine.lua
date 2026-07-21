@@ -1,4 +1,4 @@
-local c = require("paper_gogh.palette").colors
+local c = require("paper_gogh").get_palette()
 
 local theme = {
   normal = {

@@ -1,20 +1,13 @@
 # paper-gogh.nvim
 
-A light Neovim colorscheme based on the [Gogh](https://github.com/Gogh-Co/Gogh) **Paper** terminal palette — warm cream paper, black ink, and clear accents.
+A Neovim colorscheme based on the [Gogh](https://github.com/Gogh-Co/Gogh) **Paper** and **PaperColor Dark** terminal palettes.
 
-## Palette
+## Palettes
 
-| Role | Hex | Swatch |
-|------|-----|--------|
-| Background | `#f2eede` | paper |
-| Foreground | `#000000` | ink |
-| Red | `#cc3e28` | |
-| Green | `#216609` | |
-| Yellow | `#b58900` | |
-| Blue | `#1e6fcc` | |
-| Magenta | `#5c21a5` | |
-| Cyan | `#158c86` | |
-| Comment / dim | `#555555` | |
+- Light: Gogh Paper with `#f2eede` background and `#000000` foreground
+- Dark: Gogh PaperColor Dark with `#1c1c1c` background and `#d0d0d0` foreground
+
+The palette follows `vim.o.background`.
 
 ## Requirements
 
@@ -61,8 +54,30 @@ colorscheme paper-gogh
 Or from Lua:
 
 ```lua
+vim.o.background = "dark"
 require("paper_gogh").setup({ transparent = true })
 require("paper_gogh").load()
+```
+
+To use the light variant, set `vim.o.background = "light"` before loading the colorscheme.
+
+### Follow macOS appearance
+
+```lua
+local function get_macos_appearance()
+  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  if not handle then
+    return "dark"
+  end
+
+  local result = handle:read("*a") or ""
+  handle:close()
+  return result:match("Dark") and "dark" or "light"
+end
+
+vim.o.background = get_macos_appearance()
+require("paper_gogh").setup({ transparent = true })
+vim.cmd.colorscheme("paper-gogh")
 ```
 
 ## Options
@@ -102,7 +117,7 @@ require("lualine").setup({
 
 ## Credits
 
-Colors from the [Paper](https://github.com/Gogh-Co/Gogh/blob/master/installs/paper.sh) theme in [Gogh](https://github.com/Gogh-Co/Gogh).
+Colors from the [Paper](https://github.com/Gogh-Co/Gogh/blob/master/installs/paper.sh) and [PaperColor Dark](https://github.com/Gogh-Co/Gogh/blob/master/installs/papercolor-dark.sh) themes in [Gogh](https://github.com/Gogh-Co/Gogh).
 
 ## License
 
